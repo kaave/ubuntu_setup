@@ -16,8 +16,7 @@ sudo update-alternatives --config editor
 ### add sudo throw
 
 ```text
-# TODO: not enable setting
-USER_NAME ALL=NOPASSWD: ALL
+USER_NAME ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
 ### update system
