@@ -11,10 +11,17 @@
     - tree
     - tmux
     - figlet
+    - jq
+    - tig
     - htop
-    # not find: 14.04
-    # - direnv
+    - direnv
+    - mysql-workbench
+    - pgadmin3
+    - wireshark
+    - vim
     - vim-gnome
+    - dropbox
+    - wine
 
 - name: get dotfiles
   git: repo=https://github.com/kaave/dotfiles.git dest={{ home_dir }}/dotfiles

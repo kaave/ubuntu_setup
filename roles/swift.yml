@@ -1,0 +1,17 @@
+#
+# dependencies: [anyenv]
+# setting_vars: [home_dir, shell]
+#
+- name: install swiftenv
+  shell: /bin/bash -lc "anyenv install -s swiftenv"
+
+#
+# dependencies: [libraries, swiftenv]
+# setting_vars: [home_dir, swift_version, shell]
+#
+- name: install swift with swiftenv
+  shell: /bin/bash -lc "swiftenv install https://swift.org/builds/swift-{{ swift_version }}-release/ubuntu1604/swift-{{ swift_version }}-RELEASE/swift-{{ swift_version }}-RELEASE-ubuntu16.04.tar.gz"
+
+- name: swift rehash
+  shell: /bin/bash -lc "swiftenv rehash"
+

@@ -1,7 +1,7 @@
 - hosts: localhost
   connection: local
   remote_user: abe
-  gather_facts: no
+  gather_facts: yes
   vars:
     home_dir: /home/abe
     host_home_dir: /Users/abe
@@ -12,10 +12,9 @@
     node_version: 6.9.4
     erlang_version: 19.2
     elixir_version: 1.4.0
-    # python2_version: 2.7.12
-    # python3_version: 3.5.2
     golang_version: 1.7.4
     php_version: 7.1.0
+    swift_version: 3.0.2
 
     shell: bash
 
@@ -33,9 +32,12 @@
     - include: roles/node.yml
     - include: roles/erlang.yml
     - include: roles/elixir.yml
-    # - include: roles/python.yml
     # - include: roles/go.yml
     - include: roles/php.yml
+    - include: roles/swift.yml
+    - include: roles/python.yml
+      become: yes
+      become_user: root
     - include: roles/haskell.yml
       become: yes
       become_user: root

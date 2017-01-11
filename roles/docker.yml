@@ -17,22 +17,23 @@
     update_cache: yes
     state: present
 
-- name: Read uname
-  shell: uname -r
-  register: uname_output
-  changed_when: false
-  always_run: yes
-
-- name: Install linux-image-extra-* packages to enable AuFS driver
-  apt:
-    pkg: "{{ item }}"
-    state: present
-    update_cache: yes
-    cache_valid_time: "600"
-  with_items:
-    - linux-image-extra-{{ uname_output.stdout }}
-    - linux-image-extra-virtual
-  when: ansible_distribution_version|version_compare(14.04, '>=')
+# don't need?
+# - name: Read uname
+#   shell: uname -r
+#   register: uname_output
+#   changed_when: false
+#   always_run: yes
+#
+# - name: Install linux-image-extra-* packages to enable AuFS driver
+#   apt:
+#     pkg: "{{ item }}"
+#     state: present
+#     update_cache: yes
+#     cache_valid_time: "600"
+#   with_items:
+#     - linux-image-extra-{{ uname_output.stdout }}
+#     - linux-image-extra-virtual
+#   when: ansible_distribution_version|version_compare(14.04, '>=')
 
 - name: install docker
   apt: name=docker-engine state=present
