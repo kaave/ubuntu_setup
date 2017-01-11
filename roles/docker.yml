@@ -1,0 +1,44 @@
+- name: install depencencies
+  apt: name={{ item }} state=present
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+
+- name: add key
+  apt_key:
+    keyserver: "hkp://ha.pool.sks-keyservers.net:80"
+    id: 58118E89F3A912897C070ADBF76221572C52609D
+    state: present
+
+- name: Add Docker repository and update apt cache
+  apt_repository:
+    repo: "deb https://apt.dockerproject.org/repo ubuntu-xenial main"
+    mode: '644'
+    update_cache: yes
+    state: present
+
+- name: Read uname
+  shell: uname -r
+  register: uname_output
+  changed_when: false
+  always_run: yes
+
+- name: Install linux-image-extra-* packages to enable AuFS driver
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: "600"
+  with_items:
+    - linux-image-extra-{{ uname_output.stdout }}
+    - linux-image-extra-virtual
+  when: ansible_distribution_version|version_compare(14.04, '>=')
+
+- name: install docker
+  apt: name=docker-engine state=present
+
+- name: start docker
+  service:
+    name: docker
+    state: started
+

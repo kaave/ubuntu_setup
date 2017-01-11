@@ -1,0 +1,28 @@
+#
+# dependencies: []
+# setting_vars: [home_dir, host_home_dir]
+#
+- name: install packages
+  apt: name={{ item }} state=present
+  become: yes
+  become_user: root
+  with_items:
+    - zsh
+    - tree
+    - tmux
+    - figlet
+    - htop
+    # not find: 14.04
+    # - direnv
+    - vim-gnome
+
+- name: get dotfiles
+  git: repo=https://github.com/kaave/dotfiles.git dest={{ home_dir }}/dotfiles
+
+- name: install dotfiles
+  shell: /usr/bin/zsh -c '{{ home_dir }}/dotfiles/_setup.zsh'
+
+- name: set zsh
+  shell: chsh -s /usr/bin/zsh {{ install_user }}
+  become: yes
+  become_user: root
