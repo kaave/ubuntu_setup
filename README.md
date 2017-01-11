@@ -23,7 +23,7 @@ USER_NAME ALL=NOPASSWD: ALL
 ### update system
 
 ```bash
-sudo apt-get -y update && sudo apt-get upgrade
+sudo apt-get -y update && sudo apt-get -y upgrade
 ```
 
 ### install ansible
@@ -81,13 +81,13 @@ ssh-keygen
 ```bash
 # theme
 git clone https://github.com/oz123/solarized-mate-terminal
-solarized-mate-terminal/solarized-mate.sh
+cd solarized-mate-terminal && ./solarized-mate.sh
 # font
 ```
 
 #### setting Visual Studio Code
 
-- install `setting-sync`
+- install `Setting sync`
     - GistID: 9f4a74a7c814a9036fb1db5a5d70e04d
 
 #### setting Jetbrains tools
