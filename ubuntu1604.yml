@@ -1,5 +1,4 @@
-# confused from some unknown errors!
-- hosts: ubuntu1604
+- hosts: localhost
   connection: local
   remote_user: abe
   gather_facts: no
