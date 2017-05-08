@@ -25,6 +25,12 @@ USER_NAME ALL=(ALL:ALL) NOPASSWD:ALL
 sudo apt-get -y update && sudo apt-get -y upgrade
 ```
 
+### install build tools
+
+```bash
+sudo apt-get -y install build-essential git
+```
+
 ### install ansible
 
 ```bash
