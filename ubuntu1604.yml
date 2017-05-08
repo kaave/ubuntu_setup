@@ -4,16 +4,15 @@
   gather_facts: yes
   vars:
     home_dir: /home/abe
-    host_home_dir: /Users/abe
     install_user: abe
     install_group: abe
 
-    ruby_version: 2.4.0
-    node_version: 6.9.4
-    erlang_version: 19.2
-    elixir_version: 1.4.0
-    golang_version: 1.7.4
-    php_version: 7.1.0
+    ruby_version: 2.4.1
+    node_version: 6.10.3
+    erlang_version: 19.3
+    elixir_version: 1.4.2
+    # golang_version: 1.8.1
+    php_version: 7.1.3
     swift_version: 3.0.2
 
     shell: bash
@@ -34,11 +33,11 @@
     - include: roles/elixir.yml
     # - include: roles/go.yml
     - include: roles/php.yml
-    - include: roles/swift.yml
+    # - include: roles/swift.yml
     - include: roles/python.yml
       become: yes
       become_user: root
-    - include: roles/haskell.yml
-      become: yes
-      become_user: root
+    # - include: roles/haskell.yml
+    #   become: yes
+    #   become_user: root
 
