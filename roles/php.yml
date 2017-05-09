@@ -21,6 +21,7 @@
     - libxslt-dev
     - autoconf
     - automake
+    - mysql-workbench   # for PHP
 
 #
 # dependencies: [libraries, phpenv]

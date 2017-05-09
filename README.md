@@ -2,7 +2,7 @@
 
 ## Checked OS
 
-- Linux Mint 18.1 (Mate)
+- Ubuntu Gnome 16.04 64bit
 
 ## Setup
 
@@ -56,18 +56,20 @@ ansible-playbook -i ~/ubuntu_setup/hosts -vv ~/ubuntu_setup/ubuntu1604.yml
 
 - Web browsers
     - Google Chrome
+    - Firefox
     - Firefox developer edition
     - Vivaldi
-    - Blisk
 - Developments
+    - Atom
     - Visual Studio Code
     - Jetbrains toolbox
     - GitKraken
     - Slack
     - rdm
     - robomongo
-- Windows apps (dependency wine)
-    - [1password](https://ry0.github.io/blog/2015/04/12/ubuntu-1password/)
+- Utility
+    - Dropbox
+    - Enpass
 
 #### create key
 

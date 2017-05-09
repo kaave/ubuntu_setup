@@ -1,0 +1,10 @@
+- name: install repository
+  apt_repository:
+    repo: 'ppa:zeal-developers/ppa'
+
+- name: apt-get update
+  apt:
+    update_cache: yes
+
+- name: install zeal
+  apt: name=zeal state=present

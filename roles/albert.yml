@@ -1,0 +1,10 @@
+- name: install repository
+  apt_repository:
+    repo: 'ppa:nilarimogard/webupd8'
+
+- name: apt-get update
+  apt:
+    update_cache: yes
+
+- name: install albert
+  apt: name=albert state=present
