@@ -1,11 +1,9 @@
 - name: install dependencies
-  apt: name={{ item }} state=present
-  with_items:
-    - software-properties-common
+  apt: name=software-properties-common state=present
 
 - name: install repository
   apt_repository:
-    repo: 'ppa:neovim-ppa/stable'
+    repo: 'ppa:neovim-ppa/unstable'
 
 - name: apt-get update
   apt:
@@ -17,11 +15,9 @@
 - name: install python extension
   pip:
     name: neovim
-    executable: pip2
+    executable: {{ item }}
     extra_args: --user --upgrade
+  with_items:
+    - pip2
+    - pip3
 
-- name: install python extension
-  pip:
-    name: neovim
-    executable: pip3
-    extra_args: --user --upgrade
