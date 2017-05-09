@@ -43,4 +43,8 @@
     - include: roles/neovim.yml
       become: yes
       become_user: root
+    - include: roles/brightness-controller.yml
+      become: yes
+      become_user: root
+
 

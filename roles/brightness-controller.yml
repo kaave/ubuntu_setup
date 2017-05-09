@@ -1,0 +1,11 @@
+- name: install repository
+  apt_repository:
+    repo: 'ppa:apandada1/brightness-controller'
+
+- name: apt-get update
+  apt:
+    update_cache: yes
+
+- name: install brightness-controller
+  apt: name=brightness-controller state=present
+
