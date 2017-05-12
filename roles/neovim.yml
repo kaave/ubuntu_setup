@@ -12,12 +12,15 @@
 - name: install neovim
   apt: name=neovim state=present
 
-- name: install python extension
+- name: install python extension pip2
   pip:
     name: neovim
-    executable: {{ item }}
+    executable: pip2
     extra_args: --user --upgrade
-  with_items:
-    - pip2
-    - pip3
+
+- name: install python extension pip3
+  pip:
+    name: neovim
+    executable: pip3
+    extra_args: --user --upgrade
 
