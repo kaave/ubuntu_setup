@@ -8,12 +8,12 @@
     install_group: abe
 
     ruby_version: 2.4.1
-    node_version: 6.10.3
+    node_version: 6.11.0
     erlang_version: 19.3
-    elixir_version: 1.4.2
-    # golang_version: 1.8.1
-    php_version: 7.1.3
-    swift_version: 3.0.2
+    elixir_version: 1.4.4
+    # golang_version: 1.8.3
+    php_version: 7.1.6
+    # swift_version: 3.0.2
 
     shell: bash
 
@@ -31,7 +31,7 @@
     - include: roles/node.yml
     - include: roles/erlang.yml
     - include: roles/elixir.yml
-    # - include: roles/go.yml
+    - include: roles/go.yml
     - include: roles/php.yml
     # - include: roles/swift.yml
     - include: roles/python.yml
@@ -52,5 +52,4 @@
     - include: roles/zeal.yml
       become: yes
       become_user: root
-
 
