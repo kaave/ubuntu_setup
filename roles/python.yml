@@ -1,17 +1,35 @@
-# - name: download python
-#   get_url: url=https://bootstrap.pypa.io/get-pip.py dest=/tmp/get-pip.py mode=0440
-#
-# # - name: install pip for 2
-# #   shell: python /tmp/get-pip.py
-#
-# - name: install pip for 3
-#   shell: python3 /tmp/get-pip.py
+# use homebrew packages
+- name: install pyenv
+  shell: /bin/bash -lc "anyenv install -s pyenv"
 
-- name: install python
-  apt: name={{ item }} state=present
+- name: install pyenv-plugins
+  git: repo=https://github.com/{{ item.name }} dest={{ home_dir }}.anyenv/envs/pyenv/plugins/{{ item.path }}
   with_items:
-    - python-dev
-    - python-pip
-    - python3-dev
-    - python3-pip
+    - { name: 'yyuu/pyenv-virtualenv.git', path: 'pyenv-virtualenv' }
+    - { name: 'pyenv/pyenv-update.git', path: 'pyenv-update' }
+    - { name: 'jawshooah/pyenv-default-packages.git', path: 'pyenv-default-packages' }
 
+- name: link default file pyenv-packages
+  file:
+    src: "{{ home_dir }}/dotfiles/default_libraries/default-pips"
+    dest: "{{ home_dir }}/.anyenv/envs/pyenv/default-packages"
+    state: link
+
+# 2.7.x install
+- name: install python {{ python2_version }} with pyenv
+  shell: /bin/bash -lc "pyenv install {{ python2_version }}"
+
+# 3.x.x install
+- name: install python {{ python3_version }} with pyenv
+  shell: /bin/bash -lc "pyenv install {{ python3_version }}"
+
+# anaconda install
+- name: install python {{ python_anaconda_version }} with pyenv
+  shell: /bin/bash -lc "pyenv install {{ python_anaconda_version }}"
+
+# global use python2_version
+- name: set python version global
+  shell: /bin/bash -lc "pyenv global {{ python2_version }}"
+
+- name: pyenv rehash
+  shell: /bin/bash -lc "pyenv rehash"
