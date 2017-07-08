@@ -12,15 +12,15 @@
 - name: install neovim
   apt: name=neovim state=present
 
-- name: install python extension pip2
-  pip:
-    name: neovim
-    executable: pip2
-    extra_args: --user --upgrade
-
-- name: install python extension pip3
-  pip:
-    name: neovim
-    executable: pip3
-    extra_args: --user --upgrade
+  # - name: install python extension pip2
+  #   pip:
+  #     name: neovim
+  #     executable: pip2
+  #     extra_args: --user --upgrade
+  #
+  # - name: install python extension pip3
+  #   pip:
+  #     name: neovim
+  #     executable: pip3
+  #     extra_args: --user --upgrade
 

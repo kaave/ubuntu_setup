@@ -16,7 +16,7 @@
     - htop
     - direnv
     - wireshark
-    - skype
+    # - skype
     - vim
     - vim-gnome
 

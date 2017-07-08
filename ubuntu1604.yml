@@ -8,7 +8,7 @@
     install_group: abe
 
     ruby_version: 2.4.1
-    nodejs_version: 6.11.0
+    node_version: 6.11.0
     python2_version: 2.7.13
     python3_version: 3.6.1
     python_anaconda_version: anaconda3-4.4.0
@@ -53,4 +53,8 @@
     - include: roles/zeal.yml
       become: yes
       become_user: root
+    - include: roles/plank.yml
+      become: yes
+      become_user: root
+
 

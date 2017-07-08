@@ -3,7 +3,7 @@
   shell: /bin/bash -lc "anyenv install -s pyenv"
 
 - name: install pyenv-plugins
-  git: repo=https://github.com/{{ item.name }} dest={{ home_dir }}.anyenv/envs/pyenv/plugins/{{ item.path }}
+  git: repo=https://github.com/{{ item.name }} dest={{ home_dir }}/.anyenv/envs/pyenv/plugins/{{ item.path }}
   with_items:
     - { name: 'yyuu/pyenv-virtualenv.git', path: 'pyenv-virtualenv' }
     - { name: 'pyenv/pyenv-update.git', path: 'pyenv-update' }
