@@ -19,6 +19,12 @@ sudo update-alternatives --config editor
 USER_NAME ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
+### change mirror server
+
+```bash
+sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
+```
+
 ### update system
 
 ```bash
